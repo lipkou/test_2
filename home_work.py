@@ -12,6 +12,11 @@ button2 = QPushButton('2-га кнопка')
 button3 = QPushButton('3-тя кнопка')
 button4 = QPushButton('4-тa кнопка')
 
+button1.setStyleSheet('color: blue')
+button2.setStyleSheet('color: red')
+button3.setStyleSheet('color: green')
+button4.setStyleSheet('color: purple')
+
 
 v_line = QVBoxLayout()
 
@@ -32,15 +37,20 @@ v_line.addLayout(h_line3)
 
 def cnt_button1():
     lb_qwestions.setText('Ви натиснули на 1-шу кнопку')
+    lb_qwestions.setStyleSheet('color: blue')
+
 
 def cnt_button2():
     lb_qwestions.setText('Ви натиснули на 2-гу кнопку')
+    lb_qwestions.setStyleSheet('color: red')
 
 def cnt_button3():
     lb_qwestions.setText('Ви натиснули на 3-тю кнопку')
+    lb_qwestions.setStyleSheet('color: green')
 
 def cnt_button4():
     lb_qwestions.setText('Ви натиснули на 4-ту кнопку')
+    lb_qwestions.setStyleSheet('color: purple')
 
 button1.clicked.connect(cnt_button1)
 button2.clicked.connect(cnt_button2)
