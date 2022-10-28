@@ -1,11 +1,42 @@
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import (QApplication, QWidget, QLabel, QPushButton, QRadioButton, QMessageBox, QVBoxLayout, QHBoxLayout)
+from PyQt5.QtWidgets import (QListWidget, QApplication, QWidget, QLabel, QPushButton, QRadioButton, QMessageBox, QVBoxLayout, QHBoxLayout)
 
 app = QApplication([])
 win = QWidget()
-win.setWindowTitle('Вгадуватор')
+win.setWindowTitle('Python')
 win.resize(500, 200)
 
+qlist = QListWidget()
+qlist.addItem('Котик')
+btn1 = QPushButton('Додати слово Котик')
+btn2 = QPushButton('Видалити весь список')
+
+
+
+vline = QVBoxLayout()
+hline = QHBoxLayout()
+
+vline.addWidget(qlist)
+hline.addWidget(btn1, alignment=Qt.AlignCenter)
+hline.addWidget(btn2, alignment=Qt.AlignCenter)
+
+vline.addLayout(hline)
+
+def add_text_in_list():
+    qlist.addItem('Котик')
+def del_text_in_list():
+    qlist.clear()
+
+btn1.clicked.connect(add_text_in_list)
+btn2.clicked.connect(del_text_in_list)
+
+win.setLayout(vline)
+
+win.show()
+app.exec_()
+
+
+'''
 lb_qwestions = QLabel('Давай я вгадаю на яку ти кнопку натиснеш :)')
 button1 = QPushButton('1-ша кнопка')
 button2 = QPushButton('2-га кнопка')
@@ -57,7 +88,5 @@ button2.clicked.connect(cnt_button2)
 button3.clicked.connect(cnt_button3)
 button4.clicked.connect(cnt_button4)
 
-win.setLayout(v_line)
 
-win.show()
-app.exec_()
+'''
